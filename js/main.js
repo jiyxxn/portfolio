@@ -60,10 +60,9 @@ let reload = setTimeout(()=>{
 let reload2 = setTimeout(()=>{
   mainText.classList.add("on"); // 타이포할 텍스트 opacity 1;
 
-  let typingText1 = setTimeout(()=>{
-    typo(letters); //decorative, designer 텍스트 뜨고
-    subText(des, dev); // "감각있는 디자이너 텍스트"
-  }, 300);
+  typo(letters); //decorative, designer 텍스트 뜨고
+  subText(des, dev); // "감각있는 디자이너 텍스트"
+
 
   let typingText2 = setTimeout(()=>{
     // designer 지우고나서
@@ -85,7 +84,7 @@ let reload2 = setTimeout(()=>{
 
     let scrollTo = setTimeout(()=>{
       main.children[7].classList.add("on");
-    }, 9000);
+    }, 7500);
   }, 8000);
   
 
