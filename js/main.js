@@ -63,7 +63,7 @@ let reload2 = setTimeout(()=>{
   let typingText1 = setTimeout(()=>{
     typo(letters); //decorative, designer 텍스트 뜨고
     subText(des, dev); // "감각있는 디자이너 텍스트"
-  }, 1000);
+  }, 300);
 
   let typingText2 = setTimeout(()=>{
     // designer 지우고나서
@@ -85,11 +85,11 @@ let reload2 = setTimeout(()=>{
 
     let scrollTo = setTimeout(()=>{
       main.children[7].classList.add("on");
-    }, 10000);
-  }, 12000);
+    }, 9000);
+  }, 8000);
   
 
-}, 4000); // 상단 텍스트 뜰 때까지 4초 딜레이
+}, 3000); // 상단 텍스트 뜰 때까지 3초 딜레이
 
 
 
@@ -152,7 +152,7 @@ function typo(words){
   }
   
   // 초기 실행
-  setTimeout(typing, 1500);
+  setTimeout(typing, 1000);
 }
 
 
@@ -161,7 +161,7 @@ function subText(add, remove){
     subTexts.classList.add("on");
     remove.classList.remove("on");
     add.classList.add("on");
-  }, 7000)
+  }, 6000)
 }
 
 
