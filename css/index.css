@@ -475,7 +475,7 @@ div.scrollTo.on {
 }
 .subText > p {
   width: 100%;
-  font-family: Valky;
+  font-family: 'ValkyRegular';
   font-size:5.5vw;
   text-align: center;
   line-height: 100%;
