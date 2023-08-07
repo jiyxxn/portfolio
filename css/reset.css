@@ -13,6 +13,11 @@ article, aside, details, figcaption, figure, footer, header, menu, nav, section,
   display: block;
 }
 
+a, a:hover, a:focus {
+  color: #363b3e;
+  text-decoration: none;
+}
+
 /* 셀과 셀 사이의 간격 없애기 */
 table {
   border-collapse: collapse;

@@ -1,40 +1,37 @@
-// document.addEventListener("click", e=>{
-//   e.preventDefault();
-// })
+window.addEventListener("DOMContentLoaded", function(){
+  const loading = document.getElementById("splash");
+  const body = document.querySelector("body");
+  const navIcon = document.getElementById("navIcon");
 
+  setTimeout(function(){
+    loading.classList.add("off");
 
-// const contents = document.querySelectorAll("#wrap > div");
-// const sections = document.querySelectorAll("#wrap > div > section");
+    navIcon.classList.remove("load");
+  }, 3000);
+})
 
-// let devHeight = window.innerHeight;
+// 이미지 프리로드
+function preloading(imageArray){
+  // let n = imageArray.length;
+  for(let i=0; i <imageArray.length; i++){
+    let img = new Image();
+    img.src = imageArray[i];
+  }
+}
 
-// window.addEventListener("resize", () => {
-//   devHeight = window.innerHeight;
-
-//   contents.forEach(item => {
-//     item.style.height = `${devHeight}px`;
-//   })
-// })
-
-// for(let i=0; i<contents.length; i++){
-//   contents[i].addEventListener("wheel", e => {
-//     if(e.deltaY < 0){
-//       let prev = e.currentTarget.previousElementSibling.offsetTop;
-//       wheel(prev);
-//     } else if(e.deltaY > 0){
-//       let next = e.currentTarget.nextElementSibling.offsetTop;
-//       wheel(next);
-//     }
-//   })
-// }
-
-// function wheel(scrTop){
-//   window.scroll({
-//     top: scrTop,
-//     left: 0,
-//     behavior: "smooth"
-//   })
-// }
+preloading([
+  'images/cloud_panorama1.webp',
+  'images/main_bg.webp',
+  'images/main_bg2.webp',
+  'images/cloud.png',
+  'images/mountain1.webp',
+  'images/mountain2.webp',
+  'images/noise.png',
+  'images/star.jpg',
+  'images/Mockup_dang.png',
+  'images/Mockup_bing.png',
+  'images/Mockup_oth.png'
+])
 
 // 메인
 
@@ -51,21 +48,27 @@ let reload = setTimeout(()=>{
   main.children[0].classList.add("on");
   const text = setTimeout(()=>{
     main.children[1].classList.add("on");
-  },200);
+  },300);
   const mountain = setTimeout(()=>{
     main.children[2].classList.remove("off");
-  },800);
-}, 600);
+  },600);
+}, 3000);
 
 let reload2 = setTimeout(()=>{
   mainText.classList.add("on"); // 타이포할 텍스트 opacity 1;
 
   typo(letters); //decorative, designer 텍스트 뜨고
-  subText(des, dev); // "감각있는 디자이너 텍스트"
+
+  let sub = setTimeout(()=>{  // "감각있는 디자이너 텍스트"
+    subTexts.classList.add("on");
+    des.classList.add("on");
+  }, 5000)
+
 
 
   let typingText2 = setTimeout(()=>{
-    // designer 지우고나서
+
+    // designer 지우기
     for(i=0; i<letters.length; i++){
 
       const letter = letters[i].split("");
@@ -76,19 +79,28 @@ let reload2 = setTimeout(()=>{
         $text.innerHTML = letter.join(""); 
       }
     }
-
     subTexts.classList.remove("on");
+    des.classList.remove("on");
+    // 밤하늘 이미지 시작
     main.classList.add("on");
-    typo(letters2);
-    subText(dev, des);
+
+    let text2 = setTimeout(()=>{
+      typo(letters2);
+    }, 1000);
+
+    let sub = setTimeout(()=>{
+      subTexts.classList.add("on");
+      dev.classList.add("on");
+    }, 6000);
 
     let scrollTo = setTimeout(()=>{
       main.children[7].classList.add("on");
-    }, 7500);
-  }, 8000);
+      body.classList.remove("load");
+    }, 8000);
+  }, 8500);
   
 
-}, 3000); // 상단 텍스트 뜰 때까지 3초 딜레이
+}, 5000); // 상단 텍스트 뜰 때까지 3초 딜레이
 
 
 
@@ -155,14 +167,6 @@ function typo(words){
 }
 
 
-function subText(add, remove){
-  let sub = setTimeout(()=>{
-    subTexts.classList.add("on");
-    remove.classList.remove("on");
-    add.classList.add("on");
-  }, 6000)
-}
-
 
 
 // 햄버거
@@ -214,36 +218,12 @@ for(let i=0; i<lis.length; i++){
 
 // 디자인 스크롤
 
-// function checkVisible(element, check = 'above'){
-//   const viewportHeight = $(window).height(); //Viewport Height
-//   const scrollTop = $(window).scrollTop(); //scroll Top
-//   const y = $(element).offset().top;
-//   const elementHeight = $(element).height();
 
-//   //반드시 요소가 화면에 보여야 할 경우
-//   if (check == "visible")
-//     return ((y < (viewportHeight + scrollTop)) && (y > (scrollTop - elementHeight)));
 
-//   //화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할 때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴 경우) 
-//   if (check == "above")
-//     return ((y < (viewportHeight + scrollTop)));
-// }
 
-// // 리소스가 로드 되면 함수 실행을 멈출지 말지 정하는 변수
-// let isVisible = false;
 
-// //이벤트에 등록할 함수
-// const func = function () {
-//   if(!isVisible && checkVisible('.web > article')){
-//     $('.web > article').addClass("on");
-//   }
-// }
 
-// // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
-//   isVisible && window.removeEventListener("scroll", func);
 
-//   //스크롤 이벤트 등록
-//   window.addEventListener("scroll", func);
 
 // 모바일 * 프로필탭
 const profile = document.querySelector(".profile");
