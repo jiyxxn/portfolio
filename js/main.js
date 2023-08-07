@@ -82,7 +82,12 @@ let reload2 = setTimeout(()=>{
     main.classList.add("on");
     typo(letters2);
     subText(dev, des);
+
+    let scrollTo = setTimeout(()=>{
+      main.children[7].classList.add("on");
+    }, 10000);
   }, 12000);
+  
 
 }, 4000); // 상단 텍스트 뜰 때까지 4초 딜레이
 

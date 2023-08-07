@@ -437,7 +437,27 @@ p.others {
     border-color: transparent;
   }
 }
+div.scrollTo {
+  position: absolute;
+  width: 20%;
+  height: 40%;
+  left: 15%;
+  bottom: -20%;
+  background: url(../images/explore.png) no-repeat;
+  background-size: contain;
+  z-index: 30;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+div.scrollTo.on {
+  animation: scroll 25s infinite ;
+  opacity: 1;
+}
 
+@keyframes scroll {
+  0% {transform:rotate(180deg)}
+  100% {transform: rotate(0)}
+}
 /* 메인 애니메이션 */
 .subText {
   position: absolute;
