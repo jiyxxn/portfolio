@@ -1,9 +1,9 @@
 window.addEventListener("DOMContentLoaded", function(){
-  const loading = document.getElementById("splash");
+  const loading = document.getElementById("loading");
 
   setTimeout(function(){
     loading.classList.add("off");
-  }, 3000);
+  }, 4000);
 })
 
 // 이미지 프리로드
@@ -47,21 +47,23 @@ let reload = setTimeout(()=>{
   main.children[0].classList.add("on");
   const text = setTimeout(()=>{
     main.children[1].classList.add("on");
-  },300);
-  const mountain = setTimeout(()=>{
-    main.children[2].classList.remove("off");
-  },600);
-}, 3000);
+  },1000);
+  // const mountain = setTimeout(()=>{
+  //   main.children[2].classList.remove("off");
+  // },700);
+}, 5000);
 
 let reload2 = setTimeout(()=>{
   mainText.classList.add("on"); // 타이포할 텍스트 opacity 1;
 
-  typo(letters); //decorative, designer 텍스트 뜨고
+  setTimeout(function(){
+    typo(letters); //decorative, designer 텍스트 뜨고
+  },500)
 
   let sub = setTimeout(()=>{  // "감각있는 디자이너 텍스트"
     subTexts.classList.add("on");
     des.classList.add("on");
-  }, 5000)
+  }, 6000)
 
 
 
@@ -85,7 +87,7 @@ let reload2 = setTimeout(()=>{
 
     let text2 = setTimeout(()=>{
       typo(letters2);
-    }, 1000);
+    }, 2000);
 
     let sub = setTimeout(()=>{
       subTexts.classList.add("on");
@@ -102,7 +104,7 @@ let reload2 = setTimeout(()=>{
   }, 8500);
   
 
-}, 5000); // 상단 텍스트 뜰 때까지 3초 딜레이
+}, 7500); // 상단 텍스트 뜰 때까지 3초 딜레이
 
 
 

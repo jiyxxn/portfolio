@@ -102,10 +102,10 @@ section.main > p:nth-of-type(2).on{
   top: 32%;
   opacity: 1;
 }
-section.main > div.mountain.off {
-  bottom: -20%;
+/* section.main > div.mountain.off {
   opacity: 0;
-}
+  transform: translateY(100%);
+} */
 
 div.mountain {
   height: 62%;
