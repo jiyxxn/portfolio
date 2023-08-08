@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", function(){
 
 // 이미지 프리로드
 function preloading(imageArray){
-  // let n = imageArray.length;
   for(let i=0; i <imageArray.length; i++){
     let img = new Image();
     img.src = imageArray[i];
@@ -16,17 +15,17 @@ function preloading(imageArray){
 }
 
 preloading([
-  'images/cloud_panorama1.webp',
-  'images/main_bg.webp',
-  'images/main_bg2.webp',
+  'images/cloud_panorama1-min.png',
+  'images/main_bg-min.png',
+  'images/main_bg2-min.png',
   'images/cloud.png',
-  'images/mountain1.webp',
-  'images/mountain2.webp',
-  'images/noise.png',
+  'images/mountain-min.png',
+  'images/mountain2-min.png',
+  'images/noise-min.png',
   'images/star.jpg',
-  'images/Mockup_dang.png',
-  'images/Mockup_bing.png',
-  'images/Mockup_oth.png'
+  'images/Mockup_dang-min.png',
+  'images/Mockup_bing-min.png',
+  'images/Mockup_oth-min.png'
 ])
 
 // 메인
@@ -48,9 +47,7 @@ let reload = setTimeout(()=>{
   const text = setTimeout(()=>{
     main.children[1].classList.add("on");
   },1000);
-  // const mountain = setTimeout(()=>{
-  //   main.children[2].classList.remove("off");
-  // },700);
+
 }, 5000);
 
 let reload2 = setTimeout(()=>{
@@ -63,27 +60,29 @@ let reload2 = setTimeout(()=>{
   let sub = setTimeout(()=>{  // "감각있는 디자이너 텍스트"
     subTexts.classList.add("on");
     des.classList.add("on");
-  }, 6000)
+  }, 7000)
 
 
 
   let typingText2 = setTimeout(()=>{
 
-    // designer 지우기
-    for(i=0; i<letters.length; i++){
-
-      const letter = letters[i].split("");
-    
-      while (letter.length) {
-        
-        letter.pop();
-        $text.innerHTML = letter.join(""); 
-      }
-    }
     subTexts.classList.remove("on");
     des.classList.remove("on");
     // 밤하늘 이미지 시작
     main.classList.add("on");
+    // designer 지우기
+    setTimeout(function(){
+      for(i=0; i<letters.length; i++){
+  
+        const letter = letters[i].split("");
+      
+        while (letter.length) {
+          
+          letter.pop();
+          $text.innerHTML = letter.join(""); 
+        }
+      }
+    }, 400);
 
     let text2 = setTimeout(()=>{
       typo(letters2);
@@ -92,7 +91,7 @@ let reload2 = setTimeout(()=>{
     let sub = setTimeout(()=>{
       subTexts.classList.add("on");
       dev.classList.add("on");
-    }, 6000);
+    }, 7000);
 
     let scrollTo = setTimeout(()=>{
       main.children[7].classList.add("on");
@@ -101,7 +100,7 @@ let reload2 = setTimeout(()=>{
       // show nav
       navIcon.classList.remove("load");
     }, 8000);
-  }, 8500);
+  }, 9000);
   
 
 }, 7500); // 상단 텍스트 뜰 때까지 3초 딜레이
@@ -170,7 +169,42 @@ function typo(words){
   setTimeout(typing, 1000);
 }
 
+// 커서
+var cursor = document.querySelector('.cursor');
+var cursorinner = document.querySelector('.cursor2');
+var a = document.querySelectorAll('a');
 
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('cursorinnerhover')
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('cursorinnerhover')
+});
+
+a.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('click');
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('click')
+});
 
 
 // 햄버거
@@ -190,7 +224,23 @@ navIcon.addEventListener("click", e => {
 })
 
 // 디자인
+let design = document.querySelector("section.designWorks");
+let designTop = design.offsetTop;
+let designBox = document.querySelector("section.designWorks > ul:first-of-type")
 
+window.addEventListener("scroll", e=> {
+  window.addEventListener("resize", e => {
+    designTop = design.offsetTop;
+  })
+  let y = window.scrollY;
+  let compStyles = window.getComputedStyle(design);
+  let x = compStyles.getPropertyValue("translateX");
+  console.log(designTop, x);
+  if(y >= designTop){
+    designBox.style.transform = `translateX(${x - y/110}%)`
+    
+  }
+})
 
 // 웹 프로젝트
 const lis = document.querySelectorAll("section.web > ul > li > a");
