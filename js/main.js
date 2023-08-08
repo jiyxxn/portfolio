@@ -1,12 +1,8 @@
 window.addEventListener("DOMContentLoaded", function(){
   const loading = document.getElementById("splash");
-  const body = document.querySelector("body");
-  const navIcon = document.getElementById("navIcon");
 
   setTimeout(function(){
     loading.classList.add("off");
-
-    navIcon.classList.remove("load");
   }, 3000);
 })
 
@@ -43,6 +39,9 @@ const $text = document.querySelector(".others");
 const subTexts = document.querySelector("div.subText");
 const des = document.querySelector("p.des");
 const dev = document.querySelector("p.dev");
+
+const body = document.querySelector("body");
+const navIcon = document.getElementById("navIcon");
 
 let reload = setTimeout(()=>{
   main.children[0].classList.add("on");
@@ -95,7 +94,10 @@ let reload2 = setTimeout(()=>{
 
     let scrollTo = setTimeout(()=>{
       main.children[7].classList.add("on");
+      // fixed 해제
       body.classList.remove("load");
+      // show nav
+      navIcon.classList.remove("load");
     }, 8000);
   }, 8500);
   
@@ -171,8 +173,6 @@ function typo(words){
 
 // 햄버거
 
-const navIcon = document.getElementById("navIcon");
-const body = document.querySelector("body");
 const bg = document.querySelector("div.bg");
 
 navIcon.addEventListener("click", e => {
