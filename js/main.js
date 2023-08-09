@@ -228,19 +228,38 @@ let design = document.querySelector("section.designWorks");
 let designTop = design.offsetTop;
 let designBox = document.querySelector("section.designWorks > ul:first-of-type")
 
+const style = window.getComputedStyle(designBox);
+const matrix = style.transform || style.webkitTransform || style.mozTransform
+// 2d matrix has 6 values || 3d matrix has 16 values
+const matrixType = matrix.includes('3d') ? '3d' : '2d';
+const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+if (matrixType === '2d'){
+  // 왜 let은 안되지?
+  var x = matrixValues[4];
+}
+
 window.addEventListener("scroll", e=> {
   window.addEventListener("resize", e => {
     designTop = design.offsetTop;
   })
   let y = window.scrollY;
-  let compStyles = window.getComputedStyle(design);
-  let x = compStyles.getPropertyValue("translateX");
-  console.log(designTop, x);
-  if(y >= designTop){
-    designBox.style.transform = `translateX(${x - y/110}%)`
-    
+
+  if(y > designTop){
+    design.classList.add("on");
+    designBox.style.transform = `translateX(${x - y/3}px)`
+  } else {
+    design.classList.remove("on");
   }
 })
+
+// const designItem = document.querySelectorAll(".designWorks > ul:first-of-type > li");
+// console.log(designItem);
+// for(let i=0; i<designItem; i++){
+//   designItem[i].addEventListener("click", e=> {
+//     designItem[i].classList.add("on");
+//   })
+//   console.log(i)
+// }
 
 // 웹 프로젝트
 const lis = document.querySelectorAll("section.web > ul > li > a");
