@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.19"
+  }
+}

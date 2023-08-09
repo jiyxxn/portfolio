@@ -311,43 +311,58 @@ div.emoji {
 }
 
 /* designWorks */
+section.designWorks {
+  /* overflow: visible; */
+}
+section.designWorks > ul {
+  /* position: absolute;
+  top: 10%; */
+  /* transition: top 0.2s; */
+}
+/* section.designWorks.on > ul {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 40%;
+} */
 section.designWorks > div.lineCloud {
   top: 15%;
 }
 
-section.designWorks > ul > li {
+/* section.designWorks > ul > li {
   position: absolute;
-  bottom: 30vh;
+  bottom: 30%;
   width: 30vw;
   z-index: 30;
 }
 
 section.designWorks > ul > li:first-child {
-  left: 10%;
+  left: 8%;
 }
 section.designWorks > ul > li:nth-child(2) {
-  left: 25%;
+  left: 15.5%;
+
 }
 section.designWorks > ul > li:nth-child(3) {
-  left: 40%;
-  bottom: 12%;
+  left: 24%;
+
 }
 section.designWorks > ul > li:nth-child(4) {
-  left: 55%;
-  bottom: 12%;
-}
+  left: 32%;
+
+} */
 
 
 /* web projects */
 section.web > ul {
-  height: 80%;
-  top: 50%;
+  width: 20vw;
+  height: 60%;
+  /* top: 50%; */
   row-gap: 3vh;
-  transform: translateY(-50%);
   margin-left: 10%;
 }
 section.web > ul > li {
-  width: 20vw;
+  width: 100%;
+  /* border: solid 1px blue; */
 }
 
 section.web > ul > li > a {
