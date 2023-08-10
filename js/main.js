@@ -1,10 +1,11 @@
-window.addEventListener("DOMContentLoaded", function(){
-  const loading = document.getElementById("loading");
+/** 로딩페이지 */
+// window.addEventListener("DOMContentLoaded", function(){
+//   const loading = document.getElementById("loading");
 
-  setTimeout(function(){
-    loading.classList.add("off");
-  }, 4000);
-})
+//   setTimeout(function(){
+//     loading.classList.add("off");
+//   }, 4000);
+// })
 
 /** 새로고침하면 맨 위로 */
 window.onload = function(){
@@ -193,8 +194,8 @@ var cursor = document.querySelector('.cursor');
 var a = document.querySelectorAll('a');
 
 document.addEventListener('mousemove', function(e){
-  var x = e.clientX;
-  var y = e.clientY;
+  // var x = e.clientX;
+  // var y = e.clientY;
   cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
 });
 
@@ -231,6 +232,17 @@ navIcon.addEventListener("click", e => {
     bg.classList.remove("on");
   }
 })
+
+// 클릭시 이동
+const menuA = document.querySelectorAll("div.navi a");
+
+for(let i=0; i<menuA.length; i++){
+  menuA[i].addEventListener("click", e=> {
+    body.classList.remove("on");
+    bg.classList.remove("on");
+    navIcon.classList.remove("open");
+  })
+}
 
 // ❗❗ DesignWorks Section
 const designItem = document.querySelectorAll(".designWorks > ul.pcVer > li");
@@ -288,9 +300,22 @@ window.addEventListener("scroll", e=> {
   window.addEventListener("resize", e => {
     webTop = web.offsetTop;
   })
-
-  if(y >= webTop/1.2){
+  console.log(y, webTop, arts[0]);
+  if(y >= webTop/1.2 && y < webTop){
     webCircle.style.transform = `scale(${0.5 + y/4000})`
+    arts.forEach(item => {
+      item.classList.remove("on");
+    })
+    webCircle.style.background = "#fff";
+  }  
+  else if(y >= webTop){
+    arts[0].classList.add("on");
+    webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
+  } else {
+    arts.forEach(item => {
+      item.classList.remove("on");
+    })
+    webCircle.style.background = "#fff";
   }
 })
 
@@ -301,14 +326,26 @@ for(let i=0; i<lis.length; i++){
 
   lis[i].addEventListener("mouseover", e=> {
     arts.forEach(item => {
-      e.currentTarget.classList.add("on");
       item.classList.remove("on");
     })
     arts[i].classList.add("on");
 
+    if(arts[0].classList.contains("on")){
+      webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
+    } else if(arts[1].classList.contains("on")){
+      webCircle.style.background = 'linear-gradient(180deg, #ffd5ba 0%, #FFE2CE 8%, #FFF 80%)';
+    } else if(arts[2].classList.contains("on")){
+      webCircle.style.background = 'linear-gradient(180deg, #345543 0%, #C0C9B5 8%, #FFF 80%)';
+    } else if(arts[3].classList.contains("on")){
+      webCircle.style.background = 'pink';
+    } else {
+      webCircle.style.background = '#fff'
+    }
+    
+  })
 
     const className = arts[i].className;
-    console.log(className);
+
     switch(className){
       case 'webPage bing on':
         webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
@@ -326,16 +363,6 @@ for(let i=0; i<lis.length; i++){
         webCircle.style.background = '#fff'
     }
 
-  })
-  lis[i].addEventListener("mouseout", e=> {
-    arts.forEach(item => {
-      item.classList.remove("on");
-    })
-    lis.forEach(item => {
-      item.parentElement.classList.add("on");
-    })
-    webCircle.style.background = '#fff'
-  })
 }
 // 모바일 * 프로필탭
 const profile = document.querySelector(".profile");
@@ -359,3 +386,35 @@ back.addEventListener("click", e=> {
     mobcont[i].classList.remove("on");
   }
 })
+
+// $(document).ready(function(){
+
+
+//   $("#content3").mousemove(function(e){    
+//     $('.pointer').css("top", -e.pageY/30);
+//     $('.pointer').css("left",- e.pageX/30 -250);
+//     $('.pointer').fadeIn();
+//   });
+//   $("#wrap").on("mouseleave", function(){
+//   $('.pointer').fadeOut();
+//   });
+// })
+
+// const imgContent = document.querySelectorAll('img.pointer');
+// console.log(imgContent);
+// function showImgContent(e) {
+//   for(var i = 0; i < imgContent.length; i++) {
+//     x = e.pageX;
+//     y = e.pageY;
+//     imgContent[i].style.transform = `translate3d(${x}px, ${y}px, 0)`;
+//   }
+// };
+
+// document.addEventListener('mousemove', showImgContent)
+// document.addEventListener('mousemove', function(e){
+//   var x = e.clientX;
+//   var y = e.clientY;
+//   for(let i=0; i<imgContent.length; i++){
+//     imgContent[i].style.transform = `translate3d(${e.clientX-1000}px, ${e.clientY-500}px, 0)`
+//   }
+// });
