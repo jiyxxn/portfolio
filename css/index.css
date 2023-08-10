@@ -5,7 +5,7 @@
 
 /* PC */
 @media screen and (min-width: 1281px) {
-.mobSite, .mobVer, .btnCont, .moblist {
+.mobVer, .btnCont, .moblist {
   display: none;
 }
 
@@ -132,12 +132,7 @@ p.de > span:last-of-type {
   margin: 0 15px;
 }
 
-div.scrollTo {
-  width: 20%;
-  aspect-ratio: 1.05/1;
-  left: 15%;
-  bottom: -20%;
-}
+
 
 .subText {
   top: 58%;
@@ -567,12 +562,7 @@ p.de > span:last-of-type {
   margin: 0 1.2rem;
 }
 
-div.scrollTo {
-  width: 30%;
-  aspect-ratio: 1.05/1;
-  left: 35%;
-  bottom: -15%;
-}
+
 
 /* 메인 애니메이션 */
 .subText {
@@ -1005,13 +995,7 @@ font-size: 5rem;
 margin: 0 5px;
 }
 
-div.scrollTo {
-width: 35%;
-aspect-ratio: 1.05/1;
-left: 31%;
-bottom: -15%;
-/* border: solid 1px red; */
-}
+
 
 /* 메인 애니메이션 */
 .subText {
@@ -1467,12 +1451,7 @@ p.others {
   top: 56%;
 }
 
-div.scrollTo {
-  width: 60%;
-  aspect-ratio: 1.05/1;
-  left: 20%;
-  bottom: -15%;
-}
+
 
 .subText {
   top: 45%;
@@ -1763,7 +1742,8 @@ section.designWorks > h2 {
 }
 
 section.designWorks > div.lineCloud {
-  top: 10%;
+  top: 0;
+  background: url(../images/cloud_panorama1-min.png) 0 0 repeat/contain;
 }
 
 section.designWorks > ul:first-of-type {
