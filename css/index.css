@@ -386,23 +386,23 @@ article.webPage p {
   line-height: 150%;
 }
 
-article ul {
+article div.cont > ul {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   width: 25vw !important;
 }
 
-article ul > li {
+article div.cont > ul > li {
   font-size: 0.85vw;
   padding: 0.6vw 1vw;
   margin-right: 10px;
 }
 
-article.webPage ul > li:nth-child(3){
+article.webPage div.cont > ul > li:nth-child(3){
   margin-right: 3vw;
 }
-article.oth ul > li:nth-child(3){
+article.oth div.cont > ul > li:nth-child(3){
   margin-right: 10px;
 }
 

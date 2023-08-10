@@ -458,7 +458,7 @@ div.scrollTo.on {
   border:1.6px solid #fff; 
   border-radius: 20px;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s;
 }
 .scrollTo.on {
   opacity: 1;
@@ -588,7 +588,9 @@ section.profile h1 > p {
   width: 100%;
   z-index: 20;
 }
-
+:root {
+  --underline: 0;
+}
 section.profile h1::before {
   content: "";
   display: block;
@@ -597,6 +599,9 @@ section.profile h1::before {
   height: 50%;
   background: #F08BA8;
   z-index: 1;
+  transform: scaleX(var(--underline));
+  transform-origin: left;
+  transition: transform 0.3s ease-in;
 }
 
 section.profile li {
@@ -693,6 +698,7 @@ section.designWorks > ul.pcVer {
 section.designWorks > ul.pcVer > li {
   position: relative;
   margin-bottom: 4.5%;
+  transition: opacity 0.3s;
 }
 section.designWorks > ul.pcVer > li:first-child {
   margin-left: 10%;
@@ -700,7 +706,7 @@ section.designWorks > ul.pcVer > li:first-child {
 section.designWorks > ul > li.on {
   animation: shake 0.9s;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 section.designWorks > ul > li:hover > img:first-child {
   opacity: 0;
@@ -856,7 +862,7 @@ article.oth h3 > img {
   width: 60%;
 }
 
-article.webPage ul {
+article.webPage > div.cont > ul {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -865,7 +871,7 @@ article.webPage ul {
   z-index: 15;
 }
 
-article ul > li {
+article > div.cont > ul:first-of-type > li {
   font-family: 'Pretendard-Light';
   width: auto;
   border-radius: 20px;
@@ -875,16 +881,16 @@ article ul > li {
   font-weight: 400;
 }
 
-article.bing ul > li {
+article.bing > div.cont > ul:first-of-type > li {
   color: #509FC3;
 }
-article.danggn ul > li {
+article.danggn > div.cont > ul:first-of-type > li {
   color: #EB9E51;
 }
-article.oth ul > li {
+article.oth > div.cont > ul:first-of-type > li {
   color: #8E9D78;
 }
-article.danggn ul > li:nth-child(2){
+article.danggn > div.cont > ul:first-of-type > li:nth-child(2){
   font-family: 'Pretendard-SemiBold';
 }
 
@@ -933,6 +939,29 @@ article.oth div.mockup {
 .oth a {
   background: linear-gradient(180deg, #8fac96 14.06%, #B4DBBD 100%);
 }
+ul.webCheck {
+  width: 60vw;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate3d(-50%, 50%, 0);
+  z-index: 110;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  transition: transform 0.4s, opacity 0.5s;
+  opacity: 0;
+}
+
+.webCheck.on {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0);
+}
 
 .browser-mockup {
   border-top: 2em solid rgba(230, 230, 230, 0.7);
@@ -943,19 +972,31 @@ article.oth div.mockup {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 25vw;
+  height: 35vh;
+  z-index: 111;
+
+}
+
+.webCheck > li:nth-child(1) {
   width: 30vw;
-  height: 45vh;
-  z-index: 500;
-  top: 50%;
-  transform: translate3d(-50%, 70%, 0);
-  left: 70%;
-  opacity: 0;
-  transition: transform 0.4s, opacity 0.5s;
+  height: 40vh;
+  top: 6%;
+  left: 6%;
+  
 }
-.browser-mockup.on {
-  opacity: 1;
-  transform: translate3d(-50%, -50%, 0);
+.webCheck > li:nth-child(2) {
+  top: 20%;
+  right: 5%;
+  z-index: 113;
 }
+.webCheck > li:nth-child(3) {
+  bottom: 15%;
+  left: 20%;
+}
+
+
+
 .browser-mockup:before {
   display: block;
   position: absolute;
@@ -968,28 +1009,53 @@ article.oth div.mockup {
   background-color: #f44;
   box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
 }
-.browser-mockup svg {
+.webCheck > li:nth-child(4) {
+  width: 1.8vw;
+  aspect-ratio: 1/1;
+  background: #aaaaaa50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 3%;
+  top: 3%;
+}
+.webCheck svg {
   display: block;
   position: absolute;
   font-family: 'Montserrat', sans-serif; 
   width:1vw;
   height: 1vw;
-
-  top: -1.4em;
-  right: 1em;
-  background-size: contain;
-  opacity: 0.5;
+  opacity: 1;
+  filter: invert(100);
 }
 .browser-mockup img {
-  width: 90%;
-  border-radius: 20px;
- 
+  width: 100%;
+}
+
+.webCheck li:last-child {
+  position: absolute;
+  bottom: 4%;
+  width: 100%;
+  font-size: 3.3vw;
+  color: #ffffff;
+
+  text-align: center;
+  text-shadow: 0px 0px 10px #421f1f30;
+  font-family: 'RoxboroughCF-DemiBold'; 
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  z-index: 120;
 }
 
 /* content5 // contact */
 div#content5 {
   position: relative;
   z-index: 60;
+}
+.contact {
+  position: relative;
 }
 .contact > h2 {
   position: absolute;
@@ -999,6 +1065,9 @@ div#content5 {
   letter-spacing: -0.4rem;
   z-index: 30;
   line-height: 95%;
+  transform: translate3d(-50%, 0, 0);
+  opacity: 0;
+  transition: transform 0.7s, opacity 0.7s
 }
 
 .contact > h2 > span {
@@ -1021,6 +1090,9 @@ div#content5 {
   justify-content: center;
   gap: 0.3rem;
   z-index: 50;
+  transform: translate3d(50%, 0, 0);
+  opacity: 0;
+  transition: transform 0.7s, opacity 0.7s
 }
 .contact > dl > dt {
   font-weight: 600;
@@ -1031,6 +1103,9 @@ div#content5 {
   position: absolute;
   color: #fff;
   z-index: 60;
+  transform: translate3d(-50%, 0, 0);
+  opacity: 0;
+  transition: transform 0.7s, opacity 0.7s
 }
 .contact  > ul > li > strong {
   font-family: 'Pretendard-SemiBold';
@@ -1041,7 +1116,19 @@ div#content5 {
   font-family: 'Pretendard-Light';
 }
 
-
+/* 애니메이션 */
+.contact > h2.on {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.contact > ul.on {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.contact > dl.on {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
 
 
 
