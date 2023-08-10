@@ -1,11 +1,11 @@
 /** 로딩페이지 */
-// window.addEventListener("DOMContentLoaded", function(){
-//   const loading = document.getElementById("loading");
+window.addEventListener("DOMContentLoaded", function(){
+  const loading = document.getElementById("loading");
 
-//   setTimeout(function(){
-//     loading.classList.add("off");
-//   }, 4000);
-// })
+  setTimeout(function(){
+    loading.classList.add("off");
+  }, 4000);
+})
 
 /** 새로고침하면 맨 위로 */
 window.onload = function(){
@@ -303,67 +303,57 @@ window.addEventListener("scroll", e=> {
   console.log(y, webTop, arts[0]);
   if(y >= webTop/1.2 && y < webTop){
     webCircle.style.transform = `scale(${0.5 + y/4000})`
-    arts.forEach(item => {
-      item.classList.remove("on");
-    })
-    webCircle.style.background = "#fff";
   }  
-  else if(y >= webTop){
-    arts[0].classList.add("on");
-    webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
-  } else {
-    arts.forEach(item => {
-      item.classList.remove("on");
-    })
-    webCircle.style.background = "#fff";
-  }
+
 })
 
-const lis = document.querySelectorAll("section.web > ul > li > a");
+const lis = document.querySelectorAll("section.web > ul > li");
 const arts = document.querySelectorAll("section.web > article");
+const bgColor = [
+  'linear-gradient(180deg, #fff 20%, #E4F7FF 70%, #FFF 95%)',
+  'linear-gradient(180deg, #fff 20%, #FFE2CE 70%, #FFF 95%)',
+  'linear-gradient(180deg, #fff 20%, #C0C9B5 70%, #FFF 95%)',
+  'linear-gradient(180deg, #fff 20%, #ffdcdc 70%, #FFF 95%)'
+]
 
 for(let i=0; i<lis.length; i++){
 
   lis[i].addEventListener("mouseover", e=> {
+    lis.forEach(item => {
+      item.classList.remove("on");
+    })
     arts.forEach(item => {
       item.classList.remove("on");
     })
-    arts[i].classList.add("on");
+    lis[i].classList.add("on");
 
-    if(arts[0].classList.contains("on")){
-      webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
-    } else if(arts[1].classList.contains("on")){
-      webCircle.style.background = 'linear-gradient(180deg, #ffd5ba 0%, #FFE2CE 8%, #FFF 80%)';
-    } else if(arts[2].classList.contains("on")){
-      webCircle.style.background = 'linear-gradient(180deg, #345543 0%, #C0C9B5 8%, #FFF 80%)';
-    } else if(arts[3].classList.contains("on")){
-      webCircle.style.background = 'pink';
-    } else {
-      webCircle.style.background = '#fff'
+    if(lis[i].classList.contains("on")){
+      arts[i].classList.add("on");
+      webCircle.style.background = bgColor[i];
     }
-    
   })
-
-    const className = arts[i].className;
-
-    switch(className){
-      case 'webPage bing on':
-        webCircle.style.background = 'linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 8%, #FFF 80%)';
-        break;
-      case 'webPage danggn on':
-        webCircle.style.background = 'linear-gradient(180deg, #ffd5ba 0%, #FFE2CE 8%, #FFF 80%)';
-        break;
-      case 'webPage oth on':
-        webCircle.style.background = 'linear-gradient(180deg, #345543 0%, #C0C9B5 8%, #FFF 80%)';
-        break;
-      case 'mobile on':
-        webCircle.style.background = 'pink';
-        break;
-      default :
-        webCircle.style.background = '#fff'
-    }
-
 }
+
+const modalBtn = document.querySelectorAll(".webLink > a:last-child");
+const modal = document.querySelectorAll(".browser-mockup");
+const closeModal = document.querySelectorAll(".browser-mockup > svg");
+console.log(modalBtn, modal, closeModal);
+
+for(let i=0; i<modalBtn.length; i++){
+  modalBtn[i].addEventListener("click", e=> {
+    e.preventDefault();
+    modal[i].classList.toggle("on");
+  })
+  closeModal[i].addEventListener("click", e=> {
+    modal[i].classList.remove("on");
+  })
+}
+
+
+
+
+
+
 // 모바일 * 프로필탭
 const profile = document.querySelector(".profile");
 const moblis = document.querySelectorAll("ul.moblist > li > a");
@@ -386,35 +376,3 @@ back.addEventListener("click", e=> {
     mobcont[i].classList.remove("on");
   }
 })
-
-// $(document).ready(function(){
-
-
-//   $("#content3").mousemove(function(e){    
-//     $('.pointer').css("top", -e.pageY/30);
-//     $('.pointer').css("left",- e.pageX/30 -250);
-//     $('.pointer').fadeIn();
-//   });
-//   $("#wrap").on("mouseleave", function(){
-//   $('.pointer').fadeOut();
-//   });
-// })
-
-// const imgContent = document.querySelectorAll('img.pointer');
-// console.log(imgContent);
-// function showImgContent(e) {
-//   for(var i = 0; i < imgContent.length; i++) {
-//     x = e.pageX;
-//     y = e.pageY;
-//     imgContent[i].style.transform = `translate3d(${x}px, ${y}px, 0)`;
-//   }
-// };
-
-// document.addEventListener('mousemove', showImgContent)
-// document.addEventListener('mousemove', function(e){
-//   var x = e.clientX;
-//   var y = e.clientY;
-//   for(let i=0; i<imgContent.length; i++){
-//     imgContent[i].style.transform = `translate3d(${e.clientX-1000}px, ${e.clientY-500}px, 0)`
-//   }
-// });
