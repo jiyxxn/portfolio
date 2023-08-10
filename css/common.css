@@ -1,7 +1,6 @@
 /* layout */
 html {
   cursor: none;
-  /* scroll-behavior: smooth; */
 }
 
 a:hover, a:focus {
@@ -720,9 +719,11 @@ section.designWorks > ul > li > img:last-child {
   -webkit-box-shadow: 0px -1px 24px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px -1px 24px 1px rgba(0,0,0,0.1);
 }
+
 section.designWorks > ul > li:last-child  > img:last-child {
   width: 15vw;
 }
+
 section.designWorks > ul > li:first-child > img:last-child {
   left: 50%;
   transform: translateX(-50%)
