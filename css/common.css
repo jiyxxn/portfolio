@@ -482,7 +482,7 @@ div.scrollTo.on {
   position: absolute; 
   display: block;
   top: 8px; 
-  left: 44.5%; 
+  left: 50%; 
   transform: translateX(-50%);
   width: 4px; 
   height: 12px; 
@@ -494,14 +494,13 @@ div.scrollTo.on {
   animation-iteration-count: 100;
 }
 
-
 @keyframes Mouse_act
 {
-0%{transform:translateY(5px);}
+0%{transform: translate(-50%, 5px);}
 
-50%{transform:translateY(-2px);}
+50%{transform: translate(-50%, -2px);}
 
-100%{transform:translateY(5px);}
+100%{transform: translate(-50%, 5px);}
 
 }
 .subText {
