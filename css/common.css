@@ -963,6 +963,29 @@ ul.webCheck {
   opacity: 1;
   transform: translate3d(-50%, -50%, 0);
 }
+ul.webCheck {
+  width: 60vw;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate3d(-50%, 50%, 0);
+  z-index: 110;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  transition: transform 0.4s, opacity 0.5s;
+  opacity: 0;
+}
+
+.webCheck.on {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0);
+}
 
 .browser-mockup {
   border-top: 2em solid rgba(230, 230, 230, 0.7);
@@ -1035,21 +1058,34 @@ ul.webCheck {
   width: 100%;
 }
 
+<<<<<<< HEAD
 /** valdiation 텍스트*/
+=======
+>>>>>>> e4de1e63e7717b1563e65637dcfa285328b6849c
 .webCheck li:last-child {
   position: absolute;
   bottom: 4%;
   width: 100%;
   font-size: 3.3vw;
+<<<<<<< HEAD
   color: #ffffff50;
 
   text-align: center;
   /* text-shadow: 0px 0px 3px #421f1f30; */
+=======
+  color: #ffffff;
+
+  text-align: center;
+  text-shadow: 0px 0px 10px #421f1f30;
+>>>>>>> e4de1e63e7717b1563e65637dcfa285328b6849c
   font-family: 'RoxboroughCF-DemiBold'; 
   letter-spacing: -0.03em;
   font-weight: 700;
   z-index: 120;
+<<<<<<< HEAD
   -webkit-text-stroke: #fff .1px;
+=======
+>>>>>>> e4de1e63e7717b1563e65637dcfa285328b6849c
 }
 
 /* content5 // contact */
