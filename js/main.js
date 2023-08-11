@@ -244,6 +244,12 @@ for(let i=0; i<menuA.length; i++){
   })
 }
 
+
+
+
+
+
+
 // ❗❗ DesignWorks Section
 const designItem = document.querySelectorAll(".designWorks > ul.pcVer > li");
 
@@ -310,9 +316,9 @@ window.addEventListener("scroll", e=> {
 const lis = document.querySelectorAll("section.web > ul > li");
 const arts = document.querySelectorAll("section.web > article");
 const bgColor = [
-  'linear-gradient(180deg, #fff 20%, #E4F7FF 70%, #FFF 95%)',
-  'linear-gradient(180deg, #fff 20%, #FFE2CE 70%, #FFF 95%)',
-  'linear-gradient(180deg, #fff 20%, #C0C9B5 70%, #FFF 95%)',
+  'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
+  'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
+  'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #ffdcdc 70%, #FFF 95%)'
 ]
 
@@ -335,14 +341,13 @@ for(let i=0; i<lis.length; i++){
 }
 
 const modalBtn = document.querySelectorAll(".webLink > a:last-child");
-const modal = document.querySelectorAll(".browser-mockup");
-const closeModal = document.querySelectorAll(".browser-mockup > svg");
-console.log(modalBtn, modal, closeModal);
+const modal = document.querySelectorAll(".webCheck");
+const closeModal = document.querySelectorAll(".webCheck svg");
 
 for(let i=0; i<modalBtn.length; i++){
   modalBtn[i].addEventListener("click", e=> {
     e.preventDefault();
-    modal[i].classList.toggle("on");
+    modal[i].classList.add("on");
   })
   closeModal[i].addEventListener("click", e=> {
     modal[i].classList.remove("on");
@@ -359,7 +364,6 @@ const profile = document.querySelector(".profile");
 const moblis = document.querySelectorAll("ul.moblist > li > a");
 const mobcont = document.querySelectorAll(".proBox > div");
 const back = document.querySelector("p.btnBack");
-console.log(back);
 
 for(let i=0; i<moblis.length; i++){
   moblis[i].addEventListener("click", e=>{
@@ -376,3 +380,44 @@ back.addEventListener("click", e=> {
     mobcont[i].classList.remove("on");
   }
 })
+
+let profileTop = profile.offsetTop;
+
+window.addEventListener("scroll", ()=> {
+  let y = window.scrollY;
+  console.log(y)
+  if(profileTop <= y+200){
+    document.documentElement.style.setProperty('--underline', '1');
+  } else {
+    document.documentElement.style.setProperty('--underline', '0');
+  }
+})
+
+let contact = document.querySelector(".contact");
+let contactTop = contact.getBoundingClientRect().top;
+console.log(contact, contactTop)
+let delayTime = 150
+
+window.addEventListener("scroll", ()=> {
+  let y=window.scrollY;
+  if(y+400 >= contactTop){
+    contact.children[0].classList.add("on");
+
+    setTimeout(function(){
+      contact.children[3].classList.add("on");
+    }, delayTime)
+
+    setTimeout(function(){
+      contact.children[4].classList.add("on");
+    }, 3*delayTime)
+  } 
+  // else {
+  //   contactRemove(0, 3, 4);
+  // }
+})
+
+// function contactRemove(n, n2, n3){
+//   contact.children[n].classList.remove("on");
+//   contact.children[n2].classList.remove("on");
+//   contact.children[n3].classList.remove("on");
+// }
