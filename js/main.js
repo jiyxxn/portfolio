@@ -19,7 +19,7 @@ window.onload = function(){
 const lenis = new Lenis()
 
 lenis.on('scroll', (e) => {
-  console.log(e)
+  // console.log(e)
 })
 
 function raf(time) {
@@ -263,38 +263,6 @@ for(let i=0; i<designItem.length; i++){
   })
 }
 
-// ❗❗ 디자인 가로스크롤
-let design = document.querySelector("section.designWorks");
-let designTop = design.offsetTop;
-let designBox = document.querySelector("section.designWorks > ul:first-of-type")
-
-const style = window.getComputedStyle(designBox);
-const matrix = style.transform || style.webkitTransform || style.mozTransform
-// 2d matrix has 6 values || 3d matrix has 16 values
-const matrixType = matrix.includes('3d') ? '3d' : '2d';
-const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
-if (matrixType === '2d'){
-  // 왜 let은 안되지?
-  var x = matrixValues[4];
-}
-
-window.addEventListener("scroll", e=> {
-  let y = window.scrollY;
-
-  window.addEventListener("resize", e => {
-    designTop = design.offsetTop;
-  })
-
-  if(y > designTop){
-    design.classList.add("on");
-    designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
-  } else {
-    design.classList.remove("on");
-  }
-})
-
-
-
 // ❗❗ 웹 프로젝트
 let web = document.querySelector("section.web");
 let webTop = web.offsetTop;
@@ -382,16 +350,30 @@ back.addEventListener("click", e=> {
 })
 
 let profileTop = profile.offsetTop;
+let proBox = document.querySelectorAll('div.proBox > div');
+
+
 
 window.addEventListener("scroll", ()=> {
   let y = window.scrollY;
   console.log(y)
   if(profileTop <= y+200){
     document.documentElement.style.setProperty('--underline', '1');
+    proBox[0].classList.remove("lap")
+    setTimeout(function(){
+      proBox[1].classList.remove("lap")
+    }, 200)
+    setTimeout(function(){
+      proBox[2].classList.remove("lap")
+    }, 300)
   } else {
     document.documentElement.style.setProperty('--underline', '0');
+    proBox.forEach(item => {
+    item.classList.add("lap");
+    })
   }
 })
+
 
 let contact = document.querySelector(".contact");
 let contactTop = contact.getBoundingClientRect().top;
@@ -411,13 +393,46 @@ window.addEventListener("scroll", ()=> {
       contact.children[4].classList.add("on");
     }, 3*delayTime)
   } 
-  // else {
-  //   contactRemove(0, 3, 4);
-  // }
+  else {
+    contactRemove(0, 3, 4);
+  }
 })
 
-// function contactRemove(n, n2, n3){
-//   contact.children[n].classList.remove("on");
-//   contact.children[n2].classList.remove("on");
-//   contact.children[n3].classList.remove("on");
-// }
+function contactRemove(n, n2, n3){
+  contact.children[n].classList.remove("on");
+  contact.children[n2].classList.remove("on");
+  contact.children[n3].classList.remove("on");
+}
+
+
+
+
+// ❗❗ 디자인 가로스크롤
+let design = document.querySelector("section.designWorks");
+let designTop = design.offsetTop;
+let designBox = document.querySelector("section.designWorks > ul:first-of-type")
+
+const style = window.getComputedStyle(designBox);
+const matrix = style.transform || style.webkitTransform || style.mozTransform
+// 2d matrix has 6 values || 3d matrix has 16 values
+const matrixType = matrix.includes('3d') ? '3d' : '2d';
+const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+if (matrixType === '2d'){
+  // 왜 let은 안되지?
+  var x = matrixValues[4];
+}
+
+window.addEventListener("scroll", e=> {
+  let y = window.scrollY;
+
+  window.addEventListener("resize", e => {
+    designTop = design.offsetTop;
+  })
+
+  if(y > designTop){
+    design.classList.add("on");
+    designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
+  } else {
+    design.classList.remove("on");
+  }
+})
