@@ -619,15 +619,23 @@ section.profile li strong {
 section.profile h2 {
   font-family: 'RoxboroughCF-Medium';
 }
-div.proBox > div.lap {
+div.proBox > div {
   opacity: 0;
   transform: translate3d(0, 30%, 0);
-}
-div.proBox > div {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
   transition: transform 0.5s ease-in-out, opacity 0.7s;
 }
+div.proBox > div.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+div.proBox > div.on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+
 div.aboutMe {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.6);

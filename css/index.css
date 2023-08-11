@@ -1554,7 +1554,7 @@ section.profile h1 {
 section.profile h1::before {
   width: 85%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(var(--underline));
 }
 
 section.profile > span {

@@ -349,28 +349,32 @@ back.addEventListener("click", e=> {
   }
 })
 
+
 let profileTop = profile.offsetTop;
 let proBox = document.querySelectorAll('div.proBox > div');
-
+let windowW = window.innerWidth;
 
 
 window.addEventListener("scroll", ()=> {
   let y = window.scrollY;
   console.log(y)
-  if(profileTop <= y+200){
-    document.documentElement.style.setProperty('--underline', '1');
-    proBox[0].classList.remove("lap")
-    setTimeout(function(){
-      proBox[1].classList.remove("lap")
-    }, 200)
-    setTimeout(function(){
-      proBox[2].classList.remove("lap")
-    }, 300)
-  } else {
-    document.documentElement.style.setProperty('--underline', '0');
-    proBox.forEach(item => {
-    item.classList.add("lap");
-    })
+
+  if(windowW > 480){
+    if(profileTop <= y+200){
+      document.documentElement.style.setProperty('--underline', '1');
+      proBox[0].classList.add("active")
+      setTimeout(function(){
+        proBox[1].classList.add("active")
+      }, 200)
+      setTimeout(function(){
+        proBox[2].classList.add("active")
+      }, 300)
+    } else {
+      document.documentElement.style.setProperty('--underline', '0');
+      proBox.forEach(item => {
+      item.classList.remove("active");
+      })
+    }
   }
 })
 
