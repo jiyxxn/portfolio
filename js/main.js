@@ -127,8 +127,6 @@ let reload2 = setTimeout(()=>{
       main.children[7].classList.add("on");
       // fixed 해제
       body.classList.remove("load");
-      // show nav
-      navIcon.classList.remove("load");
     }, 8000);
   }, 9000);
   
@@ -247,6 +245,7 @@ const menuA = document.querySelectorAll("div.navi a");
 for(let i=0; i<menuA.length; i++){
   menuA[i].addEventListener("click", e=> {
     body.classList.remove("on");
+    body.classList.remove("load");
     bg.classList.remove("on");
     navIcon.classList.remove("open");
   })
