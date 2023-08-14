@@ -478,7 +478,8 @@ if(windowW > 480){
     // 왜 let은 안되지?
     var Bx = matrixValuesB[4];
   }
-  console.log(Bx, Ax, designTop)
+  console.log(Ax, Bx, designTop)
+
   window.addEventListener("scroll", e=> {
     let y = window.scrollY;
   
@@ -487,10 +488,8 @@ if(windowW > 480){
     })
   
     if(y > designTop){
-      mobDesignB.style.transform = `translateX(${Bx + y/2}px)`;
       mobDesignA.style.transform = `translateX(${Ax - y/10}px)`;
-    } else {
-      design.classList.remove("on");
+      mobDesignB.style.transform = `translateX(${Bx - (-y/10)}px)`;
     }
   })
 
