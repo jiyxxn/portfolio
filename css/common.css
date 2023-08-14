@@ -27,7 +27,7 @@ a:hover, a:focus {
   box-shadow: inset 0 0 20px #fff, inset 10px 0 46px #eaf5fc,
     inset 88px 0px 60px #c2d8fe, inset -20px -60px 100px #fde9ea,
     inset 0 50px 140px #fde9ea, 0 0 90px #fff;
-  word-break: keep-all;
+  /* word-break: keep-all; */
 }
 
 .hover {
@@ -994,24 +994,7 @@ ul.webCheck {
   opacity: 1;
   transform: translate3d(-50%, -50%, 0);
 }
-ul.webCheck {
-  width: 60vw;
-  height: 80vh;
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  transform: translate3d(-50%, 50%, 0);
-  z-index: 110;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.31);
-  transition: transform 0.4s, opacity 0.5s;
-  opacity: 0;
-}
+
 
 .webCheck.on {
   opacity: 1;

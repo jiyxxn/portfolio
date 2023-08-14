@@ -50,6 +50,7 @@ preloading([
   'images/Mockup_oth-min.png'
 ])
 
+let windowW = window.innerWidth;
 
 // ❗❗ 메인
 
@@ -265,21 +266,24 @@ for(let i=0; i<designItem.length; i++){
 
 // ❗❗ 웹 프로젝트
 let web = document.querySelector("section.web");
-let webTop = web.offsetTop;
-let webCircle = document.querySelector("section.web > div.webCircle")
 
-window.addEventListener("scroll", e=> {
-  let y = window.scrollY;
+if(windowW > 480){
+  let webTop = web.offsetTop;
+  let webCircle = document.querySelector("section.web > div.webCircle")
 
-  window.addEventListener("resize", e => {
-    webTop = web.offsetTop;
+  window.addEventListener("scroll", e=> {
+    let y = window.scrollY;
+  
+    window.addEventListener("resize", e => {
+      webTop = web.offsetTop;
+    })
+    console.log(y, webTop, arts[0]);
+    if(y >= webTop/1.2 && y < webTop){
+      webCircle.style.transform = `scale(${0.5 + y/4000})`
+    }  
+  
   })
-  console.log(y, webTop, arts[0]);
-  if(y >= webTop/1.2 && y < webTop){
-    webCircle.style.transform = `scale(${0.5 + y/4000})`
-  }  
-
-})
+}
 
 const lis = document.querySelectorAll("section.web > ul > li");
 const arts = document.querySelectorAll("section.web > article");
@@ -352,7 +356,7 @@ back.addEventListener("click", e=> {
 
 let profileTop = profile.offsetTop;
 let proBox = document.querySelectorAll('div.proBox > div');
-let windowW = window.innerWidth;
+
 
 
 window.addEventListener("scroll", ()=> {
@@ -375,68 +379,119 @@ window.addEventListener("scroll", ()=> {
       item.classList.remove("active");
       })
     }
+  } else {
+    // 모바일
+    document.documentElement.style.setProperty('--underline', '1');
   }
 })
 
 
-let contact = document.querySelector(".contact");
-let contactTop = contact.getBoundingClientRect().top;
+let contact = document.querySelector("#content5");
+let h2Con = document.querySelector(".contact > h2");
+let contactMe = document.querySelector(".contact > dl");
+let contactText = document.querySelector(".contact > ul");
+let contactTop = contact.offsetTop;
 console.log(contact, contactTop)
 let delayTime = 150
 
 window.addEventListener("scroll", ()=> {
   let y=window.scrollY;
   if(y+400 >= contactTop){
-    contact.children[0].classList.add("on");
+    h2Con.classList.add("on");
 
     setTimeout(function(){
-      contact.children[3].classList.add("on");
+      contactMe.classList.add("on");
     }, delayTime)
 
     setTimeout(function(){
-      contact.children[4].classList.add("on");
+      contactText.classList.add("on");
     }, 3*delayTime)
   } 
   else {
-    contactRemove(0, 3, 4);
+    h2Con.classList.remove("on");
+    contactMe.classList.remove("on");
+    contactText.classList.remove("on");
   }
 })
 
-function contactRemove(n, n2, n3){
-  contact.children[n].classList.remove("on");
-  contact.children[n2].classList.remove("on");
-  contact.children[n3].classList.remove("on");
-}
+// function contactRemove(n, n2, n3){
+//   h2Con.classList.remove("on");
+//   contactMe.classList.remove("on");
+//   contactText.classList.remove("on");
+// }
 
 
 
 
 // ❗❗ 디자인 가로스크롤
 let design = document.querySelector("section.designWorks");
-let designTop = design.offsetTop;
-let designBox = document.querySelector("section.designWorks > ul:first-of-type")
+let designTop = design.getBoundingClientRect().top;
 
-const style = window.getComputedStyle(designBox);
-const matrix = style.transform || style.webkitTransform || style.mozTransform
-// 2d matrix has 6 values || 3d matrix has 16 values
-const matrixType = matrix.includes('3d') ? '3d' : '2d';
-const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
-if (matrixType === '2d'){
-  // 왜 let은 안되지?
-  var x = matrixValues[4];
-}
+// 모바일 제외
+if(windowW > 480){
+  let designBox = document.querySelector("section.designWorks > ul:first-of-type")
 
-window.addEventListener("scroll", e=> {
-  let y = window.scrollY;
-
-  window.addEventListener("resize", e => {
-    designTop = design.offsetTop;
+  const style = window.getComputedStyle(designBox);
+  const matrix = style.transform || style.webkitTransform || style.mozTransform
+  // 2d matrix has 6 values || 3d matrix has 16 values
+  const matrixType = matrix.includes('3d') ? '3d' : '2d';
+  const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+  if (matrixType === '2d'){
+    // 왜 let은 안되지?
+    var x = matrixValues[4];
+  }
+  
+  window.addEventListener("scroll", e=> {
+    let y = window.scrollY;
+  
+    window.addEventListener("resize", e => {
+      designTop = design.offsetTop;
+    })
+  
+    if(y > designTop){
+      design.classList.add("on");
+      designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
+    } else {
+      design.classList.remove("on");
+    }
   })
 
-  if(y > designTop){
-    design.classList.add("on");
-    designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
-  } else {
-    design.classList.remove("on");
+} else {
+  let mobDesignA = document.querySelector("ul.topright");
+  let mobDesignB = document.querySelector("ul.bottomleft");
+
+  const mobstyleA = window.getComputedStyle(mobDesignA);
+  const mobstyleB = window.getComputedStyle(mobDesignB);
+
+  const matrixA = mobstyleA.transform || mobstyleA.webkitTransform || mobstyleA.mozTransform
+  const matrixType = matrixA.includes('3d') ? '3d' : '2d'
+  const matrixValuesA = matrixA.match(/matrix.*\((.+)\)/)[1].split(', ');
+  if (matrixType === '2d'){
+    // 왜 let은 안되지?
+    var Ax = matrixValuesA[4];
   }
-})
+
+  const matrixB = mobstyleB.transform || mobstyleB.webkitTransform || mobstyleB.mozTransform
+  const matrixType2 = matrixB.includes('3d') ? '3d' : '2d'
+  const matrixValuesB = matrixB.match(/matrix.*\((.+)\)/)[1].split(', ');
+  if (matrixType2 === '2d'){
+    // 왜 let은 안되지?
+    var Bx = matrixValuesB[4];
+  }
+  console.log(Bx, Ax, designTop)
+  window.addEventListener("scroll", e=> {
+    let y = window.scrollY;
+  
+    window.addEventListener("resize", e => {
+      designTop = design.offsetTop;
+    })
+  
+    if(y > designTop){
+      mobDesignB.style.transform = `translateX(${Bx + y/2}px)`;
+      mobDesignA.style.transform = `translateX(${Ax - y/10}px)`;
+    } else {
+      design.classList.remove("on");
+    }
+  })
+
+}
