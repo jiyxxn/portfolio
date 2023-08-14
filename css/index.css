@@ -307,19 +307,7 @@ div.emoji {
 
 
 /* designWorks */
-section.designWorks {
-  /* overflow: visible; */
-}
-section.designWorks > ul {
-  /* position: absolute;
-  top: 10%; */
-  /* transition: top 0.2s; */
-}
-/* section.designWorks.on > ul {
-  position: -webkit-sticky; 
-  position: sticky;
-  top: 40%;
-} */
+
 section.designWorks > div.lineCloud {
   top: 15%;
 }
@@ -2059,6 +2047,7 @@ ul.webCheck {
 .browser-mockup img {
   width: 100%;
   /* border-radius: 15px; */
+  border-radius: 0px;
 }
 article div.mockup {
   position: absolute;

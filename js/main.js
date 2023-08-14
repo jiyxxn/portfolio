@@ -1,3 +1,6 @@
+/** 사이즈 변경시 자동 새로고침 */
+$(window).resize(function(){document.location.reload();})
+
 /** 로딩페이지 */
 window.addEventListener("DOMContentLoaded", function(){
   const loading = document.getElementById("loading");
@@ -264,54 +267,6 @@ for(let i=0; i<designItem.length; i++){
   })
 }
 
-// ❗❗ 웹 프로젝트
-let web = document.querySelector("section.web");
-
-if(windowW > 480){
-  let webTop = web.offsetTop;
-  let webCircle = document.querySelector("section.web > div.webCircle")
-
-  window.addEventListener("scroll", e=> {
-    let y = window.scrollY;
-  
-    window.addEventListener("resize", e => {
-      webTop = web.offsetTop;
-    })
-    console.log(y, webTop, arts[0]);
-    if(y >= webTop/1.2 && y < webTop){
-      webCircle.style.transform = `scale(${0.5 + y/4000})`
-    }  
-  
-  })
-}
-
-const lis = document.querySelectorAll("section.web > ul > li");
-const arts = document.querySelectorAll("section.web > article");
-const bgColor = [
-  'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
-  'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
-  'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
-  'linear-gradient(180deg, #fff 20%, #ffdcdc 70%, #FFF 95%)'
-]
-
-for(let i=0; i<lis.length; i++){
-
-  lis[i].addEventListener("mouseover", e=> {
-    lis.forEach(item => {
-      item.classList.remove("on");
-    })
-    arts.forEach(item => {
-      item.classList.remove("on");
-    })
-    lis[i].classList.add("on");
-
-    if(lis[i].classList.contains("on")){
-      arts[i].classList.add("on");
-      webCircle.style.background = bgColor[i];
-    }
-  })
-}
-
 const modalBtn = document.querySelectorAll(".webLink > a:last-child");
 const modal = document.querySelectorAll(".webCheck");
 const closeModal = document.querySelectorAll(".webCheck svg");
@@ -414,11 +369,6 @@ window.addEventListener("scroll", ()=> {
   }
 })
 
-// function contactRemove(n, n2, n3){
-//   h2Con.classList.remove("on");
-//   contactMe.classList.remove("on");
-//   contactText.classList.remove("on");
-// }
 
 
 
@@ -488,9 +438,60 @@ if(windowW > 480){
     })
   
     if(y > designTop){
-      mobDesignA.style.transform = `translateX(${Ax - y/10}px)`;
+      mobDesignA.style.transform = `translateX(${1.9*Ax - y/9}px)`;
       mobDesignB.style.transform = `translateX(${Bx - (-y/10)}px)`;
     }
   })
 
+}
+
+
+
+
+// ❗❗ 웹 프로젝트
+let web = document.querySelector("section.web");
+let webTop = web.offsetTop;
+let webCircle = document.querySelector("section.web > div.webCircle")
+
+if(windowW > 480){
+
+  window.addEventListener("scroll", e=> {
+    let y = window.scrollY;
+  
+    window.addEventListener("resize", e => {
+      webTop = web.offsetTop;
+    })
+    console.log(y, webTop, arts[0]);
+    if(y >= webTop/1.2 && y < webTop){
+      webCircle.style.transform = `scale(${0.5 + y/4000})`
+    }  
+  
+  })
+}
+
+const lis = document.querySelectorAll("section.web > ul > li");
+const arts = document.querySelectorAll("section.web > article");
+const bgColor = [
+  'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
+  'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
+  'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
+  'linear-gradient(180deg, #fff 20%, #ffdcdc 70%, #FFF 95%)'
+]
+
+for(let i=0; i<lis.length; i++){
+
+  lis[i].addEventListener("mouseover", e=> {
+    lis.forEach(item => {
+      item.classList.remove("on");
+    })
+    arts.forEach(item => {
+      item.classList.remove("on");
+    })
+    lis[i].classList.add("on");
+
+    if(lis[i].classList.contains("on")){
+      arts[i].classList.add("on");
+      webCircle.style.background = bgColor[i];
+    }
+  })
 }
