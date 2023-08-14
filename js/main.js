@@ -54,7 +54,11 @@ preloading([
 ])
 
 let windowW = window.innerWidth;
+window.addEventListener("resize", e=> {
+  windowW = window.innerWidth;
+})
 
+console.log(windowW);
 // ❗❗ 메인
 
 const main = document.querySelector("section.main");
@@ -295,7 +299,9 @@ const back = document.querySelector("p.btnBack");
 for(let i=0; i<moblis.length; i++){
   moblis[i].addEventListener("click", e=>{
     e.preventDefault();
-
+    proBox.forEach(item => {
+      item.classList.remove("active");
+    })
     profile.classList.add("off");
     mobcont[i].classList.add("on");
   })
@@ -315,9 +321,12 @@ let proBox = document.querySelectorAll('div.proBox > div');
 
 
 window.addEventListener("scroll", ()=> {
-  let y = window.scrollY;
-  console.log(y)
+  profileAni();
+  window.addEventListener("resize", profileAni());
+})
 
+function profileAni(){
+  let y = window.scrollY;
   if(windowW > 480){
     if(profileTop <= y+200){
       document.documentElement.style.setProperty('--underline', '1');
@@ -338,15 +347,13 @@ window.addEventListener("scroll", ()=> {
     // 모바일
     document.documentElement.style.setProperty('--underline', '1');
   }
-})
-
+}
 
 let contact = document.querySelector("#content5");
 let h2Con = document.querySelector(".contact > h2");
 let contactMe = document.querySelector(".contact > dl");
 let contactText = document.querySelector(".contact > ul");
 let contactTop = contact.offsetTop;
-console.log(contact, contactTop)
 let delayTime = 150
 
 window.addEventListener("scroll", ()=> {
@@ -379,6 +386,20 @@ let designTop = design.getBoundingClientRect().top;
 
 // 모바일 제외
 if(windowW > 480){
+  scrollPC();
+} else {
+  scrollMob();
+}
+
+window.addEventListener("resize", ()=>{
+  if(windowW > 480){
+    window.addEventListener("resize", scrollPC());
+  } else {
+    window.addEventListener("resize", scrollMob());
+  }
+})
+
+function scrollPC(){
   let designBox = document.querySelector("section.designWorks > ul:first-of-type")
 
   const style = window.getComputedStyle(designBox);
@@ -405,8 +426,9 @@ if(windowW > 480){
       design.classList.remove("on");
     }
   })
+}
 
-} else {
+function scrollMob(){
   let mobDesignA = document.querySelector("ul.topright");
   let mobDesignB = document.querySelector("ul.bottomleft");
 
@@ -417,7 +439,6 @@ if(windowW > 480){
   const matrixType = matrixA.includes('3d') ? '3d' : '2d'
   const matrixValuesA = matrixA.match(/matrix.*\((.+)\)/)[1].split(', ');
   if (matrixType === '2d'){
-    // 왜 let은 안되지?
     var Ax = matrixValuesA[4];
   }
 
@@ -425,7 +446,6 @@ if(windowW > 480){
   const matrixType2 = matrixB.includes('3d') ? '3d' : '2d'
   const matrixValuesB = matrixB.match(/matrix.*\((.+)\)/)[1].split(', ');
   if (matrixType2 === '2d'){
-    // 왜 let은 안되지?
     var Bx = matrixValuesB[4];
   }
   console.log(Ax, Bx, designTop)
@@ -442,18 +462,15 @@ if(windowW > 480){
       mobDesignB.style.transform = `translateX(${Bx - (-y/10)}px)`;
     }
   })
-
 }
-
-
 
 
 // ❗❗ 웹 프로젝트
 let web = document.querySelector("section.web");
 let webTop = web.offsetTop;
-let webCircle = document.querySelector("section.web > div.webCircle")
 
 if(windowW > 480){
+  var webCircle = document.querySelector("section.web > div.webCircle")
 
   window.addEventListener("scroll", e=> {
     let y = window.scrollY;
@@ -479,7 +496,7 @@ const bgColor = [
 ]
 
 for(let i=0; i<lis.length; i++){
-
+  var webCircle = document.querySelector("section.web > div.webCircle")
   lis[i].addEventListener("mouseover", e=> {
     lis.forEach(item => {
       item.classList.remove("on");
