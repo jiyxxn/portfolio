@@ -127,6 +127,7 @@ let reload2 = setTimeout(()=>{
       main.children[7].classList.add("on");
       // fixed 해제
       body.classList.remove("load");
+      navIcon.classList.remove("load");
     }, 8000);
   }, 9000);
   
@@ -270,9 +271,10 @@ for(let i=0; i<designItem.length; i++){
   })
 }
 
-const modalBtn = document.querySelectorAll(".webLink > a:last-child");
+const modalBtn = document.querySelectorAll(".webLink > a.access");
 const modal = document.querySelectorAll(".webCheck");
 const closeModal = document.querySelectorAll(".webCheck svg");
+console.log(modalBtn, modal, closeModal)
 
 for(let i=0; i<modalBtn.length; i++){
   modalBtn[i].addEventListener("click", e=> {
@@ -283,9 +285,6 @@ for(let i=0; i<modalBtn.length; i++){
     modal[i].classList.remove("on");
   })
 }
-
-
-
 
 
 
@@ -491,7 +490,7 @@ const bgColor = [
   'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
-  'linear-gradient(180deg, #fff 20%, #ffdcdc 70%, #FFF 95%)'
+  'linear-gradient(180deg, #fff 20%, #F5F3EC 50%, #F0EBD7 75%, #FFFfff70 90%)'
 ]
 
 for(let i=0; i<lis.length; i++){
