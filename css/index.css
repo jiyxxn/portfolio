@@ -398,6 +398,13 @@ article div.mockup {
   right: -5%;
   bottom: 5%;
 }
+article.mobile div.mockup {
+  position: absolute;
+  width: 50vw;
+  height: 110vh;
+  right: 0;
+  bottom: -3%;
+}
 
 /* content5 // contact */
 .contact > h2 {
@@ -775,7 +782,9 @@ article > div.cont {
   flex-flow: column nowrap;
   row-gap: 2vh;
 }
-
+article.mobile > div.cont {
+  width: 85%;
+}
 article.webPage p {
   font-family: 'Pretendard-Regular';
   width: 100%;
@@ -783,6 +792,7 @@ article.webPage p {
   letter-spacing: -0.02vw;
   line-height: 150%;
   word-break: keep-all;
+  z-index: 5;
 }
 
 article ul > li {
@@ -798,6 +808,14 @@ article div.mockup {
   right: -15vh;
   bottom: 2%;
   z-index: 5;
+}
+article.mobile div.mockup {
+  width: 75vh;
+  height: 90vh;
+  right: -10vh;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.9;
 }
 ul.webCheck {
   width: 60vw;
@@ -1262,6 +1280,7 @@ font-size: 2vw;
 letter-spacing: -0.02vw;
 line-height: 150%;
 word-break: keep-all;
+z-index: 5;
 }
 
 /* article.webPage ul {
@@ -1281,7 +1300,11 @@ height: 80vh;
 right: -10%;
 bottom: 5%;
 }
-
+article.mobile div.mockup {
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.8;
+}
 ul.webCheck {
   width: 60vw;
   height: 80vh;
@@ -1921,6 +1944,11 @@ article.oth {
   , linear-gradient(180deg, #345543 0%, #C0C9B5 0.01%, #FFF 100%);
   background-blend-mode: multiply;
 }
+article.mobile {
+  background: url(../images/noise-min.png) 50% / cover no-repeat
+  , linear-gradient(180deg, #345543 0%, #efe9d2 0.01%, #FFF 100%);
+  background-blend-mode: multiply;
+}
 
 article h3 {
   width: 35vw;
@@ -1930,6 +1958,7 @@ article.oth h3 {
 }
 
 article > div.cont {
+  position: relative;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1938,6 +1967,7 @@ article > div.cont {
   flex-flow: column nowrap;
   align-items: center;
   row-gap: 3vh;
+  z-index: 6;
 }
 
 article.webPage p {
@@ -1994,8 +2024,8 @@ ul.webCheck {
   width: 50%;
   height: 30%;
   z-index: 111;
-
 }
+
 .webCheck > li:nth-child(1) {
   top: 10%;
   left: 6%;
@@ -2056,6 +2086,12 @@ article div.mockup {
   left: 10vw;
   bottom: 2%;
   z-index: 1;
+}
+article.mobile div.mockup {
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
 }
 .webCheck li:last-child {
   position: absolute;

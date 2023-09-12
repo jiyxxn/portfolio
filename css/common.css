@@ -922,6 +922,9 @@ article.danggn > div.cont > ul:first-of-type > li {
 article.oth > div.cont > ul:first-of-type > li {
   color: #8E9D78;
 }
+article.mobile > div.cont > ul:first-of-type > li {
+  color: #979177;
+}
 article.danggn > div.cont > ul:first-of-type > li:nth-child(2){
   font-family: 'Pretendard-SemiBold';
 }
@@ -934,6 +937,9 @@ article.danggn div.mockup {
 }
 article.oth div.mockup {
   background: url(../images/Mockup_oth-min.png) no-repeat 0 100% /contain;
+}
+article.mobile div.mockup {
+  background: url(../images/mob_mockup.png) no-repeat 0 0/cover;
 }
 .webLink {
   display: flex;
@@ -968,8 +974,10 @@ article.oth div.mockup {
   background-image: linear-gradient(180deg, #f5ddca 0, #f4d7c3 16.67%, #f3d0bc 33.33%, #f2c9b5 50%, #f1c2af 66.67%, #f0bba9 83.33%, #efb4a5 100%);
 }
 .oth a {
-  /* background: linear-gradient(180deg, #8fac96 14.06%, #B4DBBD 100%); */
   background-image: linear-gradient(180deg, #b0e3c9 0, #b5d2bd 25%, #a1c6aa 50%, #99bda2 75%, rgb(163, 185, 169) 100%);
+}
+.mobile a {
+  background-image: linear-gradient(180deg, #F5F3EC 0, #efe9d2 25%, #e8e0c2 50%,#e8e0c2 75%, rgb(215, 205, 169) 100%);
 }
 ul.webCheck {
   width: 60vw;
