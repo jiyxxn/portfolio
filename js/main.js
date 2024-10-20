@@ -71,6 +71,7 @@ const subTextsElements = document.querySelector("div.subText > div");
 
 const body = document.querySelector("body");
 const navIcon = document.getElementById("navIcon");
+const mouseDown = document.querySelector(".scrollTo");
 
 let reload = setTimeout(()=>{
   main.children[0].classList.add("on");
@@ -124,7 +125,7 @@ let reload2 = setTimeout(()=>{
     }, 7000);
 
     let scrollTo = setTimeout(()=>{
-      main.children[7].classList.add("on");
+      mouseDown.classList.add("on");
       // fixed 해제
       body.classList.remove("load");
       navIcon.classList.remove("load");
@@ -487,6 +488,7 @@ if(windowW > 480){
 const lis = document.querySelectorAll("section.web > ul > li");
 const arts = document.querySelectorAll("section.web > article");
 const bgColor = [
+  'linear-gradient(rgb(255, 255, 255) 20%, rgb(217 226 250) 50%, rgb(105 127 184) 85%, rgba(255, 255, 255, 0.44) 90%)',
   'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
