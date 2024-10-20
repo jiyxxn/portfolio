@@ -399,7 +399,7 @@ div.mainText {
   font-weight: 600;
   font-size: 8vw;
   letter-spacing: -0.01em;
-  align-items: center;
+  align-items: baseline;
   z-index: 5;
   opacity: 0;
   transition: opacity 0.7s;
@@ -421,10 +421,10 @@ p.de > span:first-of-type {
 }
 
 p.others {
-  position: absolute;
+  /* position: absolute;
   top: 52%;
   transform: translateY(-50%);
-  left: 100%;
+  left: 100%; */
   border-right: 2px solid #fff;
   animation: blink .8s;
   animation-iteration-count: 50;
@@ -505,11 +505,12 @@ div.scrollTo.on {
 
 }
 .subText {
-  position: absolute;
+  /* position: absolute; */
   z-index: 40;
   color: #fff;
   opacity: 0;
   transition: transform 1s ease, opacity 1.5s ease;
+  margin-left: 10vw;
 }
 
 .subText > p {
@@ -812,7 +813,7 @@ section.web {
   width: 100%;
   height: 100vh;
   border-radius: 200vw 200vw 0 0;
-  background: linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%);
+  background: linear-gradient(rgb(255, 255, 255) 20%, rgb(217 226 250) 50%, rgb(105 127 184) 85%, rgba(255, 255, 255, 0.44) 90%);
   background-blend-mode: multiply;
   z-index: 30;
   transform: scale(0.5);
@@ -885,11 +886,87 @@ article.oth {
   , linear-gradient(180deg, #345543 0%, #C0C9B5 0.01%, #FFF 100%);
   background-blend-mode: multiply;
 } */
+
 article.webPage.on {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
+article.cafe24 > .cont {width: 60%; top: 6%; }  
+article.cafe24 > .cont >  .brand_card {
+  width: 100% !important; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+article.cafe24 > .cont >  .brand_card > li {
+  width: 100%; 
+  height: 30vh;
+  padding: 10% 40px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  border-radius: 40px;
+}
 
+article.cafe24 > .cont >  .brand_card > li .brand_img {
+  visibility: visible;
+  opacity: 1;
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  transition: opacity 0.6s ease-in-out;
+}
+article.cafe24 > .cont >  .brand_card .ouro .brand_img {
+  width: 40%;
+}
+
+article.cafe24 > .cont >  .brand_card > li .brand_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}
+article.cafe24 > .cont >  .brand_card > li:hover .brand_img {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+}
+
+article.cafe24 > .cont >  .brand_card > li .brand_desc {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+
+
+}
+article.cafe24 > .cont >  .brand_card > li:hover .brand_desc {
+  visibility: visible;
+  opacity: 1;
+}
+article.cafe24 > .cont >  .brand_card > li .brand_desc li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1vw;
+  letter-spacing: -0.08em;
+}
+article.cafe24 > .cont >  .brand_card > li .brand_desc li + li {
+  margin-top: 20px;
+}
+article.cafe24 > .cont >  .brand_card > li .brand_desc li::before {
+  content: "-";
+  display: block;
+}
+article.cafe24 > .cont >  .brand_card > li .brand_desc li.bold {
+  font-family: 'Pretendard-Bold'; 
+}
 article.oth h3 > img {
   width: 60%;
 }
