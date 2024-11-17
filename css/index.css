@@ -405,7 +405,10 @@ article.mobile div.mockup {
   right: 0;
   bottom: -3%;
 }
-
+article.cafe24 > .cont >  .brand_card > li:hover .brand_desc {
+  visibility: visible;
+  opacity: 1;
+}
 /* content5 // contact */
 .contact > h2 {
   top: 3%;
@@ -1024,9 +1027,10 @@ background: url(../images/cloud_panorama1-min.png) repeat-x 0 80%;
 
 
 div.mainText {
-top: 50%;
-left: 14%;
-font-size: 12vw;
+  position: relative;
+  top: 50%;
+  left: 14%;
+  font-size: 12vw;
 }
 p.de > span:last-of-type {
 color: #fff;
@@ -1038,12 +1042,12 @@ margin: 0 5px;
 
 /* 메인 애니메이션 */
 .subText {
-top: 68%;
-left: 50%;
-transform: translate3d(-50%, 200%, 0);
+  position: absolute;
+  transform: translate3d(-50%, 200%, 0);
 }
 
 .subText.on {
+  position: absolute;
 transform: translate3d(-50%, 0, 0);
 opacity: 1;
 }
@@ -1523,8 +1527,9 @@ div.lineCloud {
 }
 
 div.mainText {
+  position: relative;
   top: 33%;
-  left: 14%;
+  left: 10%;
   font-size: 13vw;
 }
 
@@ -1547,8 +1552,10 @@ p.others {
 
 
 .subText {
-  top: 45%;
-  left: 50%;
+  position: absolute;
+  margin-left: 0;
+  top: 100%;
+  left: 40%;
   transform: translate3d(-50%, 200%, 0);
 }
 
@@ -1813,6 +1820,8 @@ div.skills > ul {
   align-content: center;
   justify-items: center;
 }
+div.skills li img {width: 100%;}
+div.skills li.jquery img, div.skills li.scss img {width: 80%;}
 
 div.emoji {
   display: none;
@@ -1842,10 +1851,9 @@ section.designWorks > h2 {
 
 section.designWorks > ul.topright {
   position: sticky;
-  position: -webkit-sticky;
   top: 10%;
   display: flex;
-  /* align-items: end; */
+  align-items: end;
   width: 400%;
   height: 10%;
   background: url(../images/box.png) repeat-x 0 100%/ contain; 
@@ -1855,15 +1863,13 @@ section.designWorks > ul.topright {
 }
 section.designWorks > ul.bottomleft{
   position: sticky;
-  position: -webkit-sticky;
-  top: 60%;
+  /* position: -webkit-sticky; */
   width: 400%;
   height: 10%;
   background: url(../images/box2.png) repeat-x 0 100%/contain;
   transform: translateX(-82%);
   display: flex;
   align-items: end;
-  gap: -5%;
 
 }
 
@@ -1929,6 +1935,11 @@ section.designWorks > ul > li > img:last-child {
 section.designWorks > ul > li:last-child > img:last-child {
   width: 20vh;
 }
+article.cafe24 {
+  background: url(../images/noise-min.png) 50% / cover no-repeat
+  , linear-gradient(180deg, rgb(105 127 184) 0.01%, #FFF 100%);
+  background-blend-mode: multiply;
+}
 article.bing {
   background: url(../images/noise-min.png) 50% / cover no-repeat
   , linear-gradient(180deg, #F4FCFF 0%, #E4F7FF 0.01%, #FFF 100%);
@@ -1950,13 +1961,18 @@ article.mobile {
   background-blend-mode: multiply;
 }
 
+
 article h3 {
   width: 35vw;
 }
+
+article.cafe24 .cont {width: 100%; top: 0; padding: 0; box-sizing: content-box;}
+article.cafe24 > .cont > .brand_card {height: 100%; display: flex; flex-flow: column nowrap;}
+article.cafe24 > .cont > .brand_card .brand_desc {display: none !important;}
+article.cafe24 > .cont > .brand_card > li {height: 10vh; padding: 5% 40px; margin-right: 0; border-radius: 30px;}
 article.oth h3 {
   text-align: center;
 }
-
 article > div.cont {
   position: relative;
   width: 100%;

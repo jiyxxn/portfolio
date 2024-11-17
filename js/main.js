@@ -198,30 +198,30 @@ function typo(words){
 }
 
 // ❗❗ 커서
-var cursor = document.querySelector('.cursor');
-var a = document.querySelectorAll('a');
+// var cursor = document.querySelector('.cursor');
+// var a = document.querySelectorAll('a');
 
-document.addEventListener('mousemove', function(e){
-  // var x = e.clientX;
-  // var y = e.clientY;
-  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
-});
+// document.addEventListener('mousemove', function(e){
+//   // var x = e.clientX;
+//   // var y = e.clientY;
+//   cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+// });
 
-document.addEventListener('mouseup', function(){
-  cursor.classList.remove('cursorinnerhover')
-});
-document.addEventListener('mousedown', function(){
-  cursor.classList.add('cursorinnerhover')
-});
+// document.addEventListener('mouseup', function(){
+//   cursor.classList.remove('cursorinnerhover')
+// });
+// document.addEventListener('mousedown', function(){
+//   cursor.classList.add('cursorinnerhover')
+// });
 
-a.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
+// a.forEach(item => {
+//   item.addEventListener('mouseover', () => {
+//     cursor.classList.add('hover');
+//   });
+//   item.addEventListener('mouseleave', () => {
+//     cursor.classList.remove('hover');
+//   });
+// })
 
 
 
@@ -488,7 +488,7 @@ if(windowW > 480){
 const lis = document.querySelectorAll("section.web > ul > li");
 const arts = document.querySelectorAll("section.web > article");
 const bgColor = [
-  'linear-gradient(rgb(255, 255, 255) 20%, rgb(217 226 250) 50%, rgb(105 127 184) 85%, rgba(255, 255, 255, 0.44) 90%)',
+  'linear-gradient(rgb(255, 255, 255) 20%, rgb(217 226 250) 50%, rgb(105 127 184) 80%, rgba(255, 255, 255, 0.44) 98%)',
   'linear-gradient(180deg, #fff 20%, #E4F7FF 50%, rgb(185, 219, 234) 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #FFE2CE 50%, #ffd3b5 75%, #FFFfff70 90%)',
   'linear-gradient(180deg, #fff 20%, #dae3ce 50%, #C0C9B5 75%, #FFFfff70 90%)',
