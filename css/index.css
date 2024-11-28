@@ -273,11 +273,11 @@ div.skills {
 }
 
 div.skills > ul {
-  width: 80%;
+  width: 70%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 10%;
+  gap: 5%;
   text-align: center;
   margin: 0 auto;
   align-content: center;
