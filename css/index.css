@@ -228,44 +228,36 @@ div.tlgraph div.circle:last-of-type {
 div.timeLine div.tldata {
   position: absolute;
   width: 100%;
-  top: 12%;
+  top: 5%;
+  left: 8%
 }
-div.tldata > ul::before {
+section.profile .tldata li {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+section.profile .tldata li + li {
+  margin-top: 20px;
+}
+section.profile .tldata li .timeLine_cont {
+  display: flex;
+  flex-flow: column nowrap;
+}
+section.profile .tldata li::before {
   content: "";
   display: block;
-  position: absolute;
-  top: 10%;
-  left: 8.4%;
   width: 0.8vw;
   height: 0.8vw;
   border-radius: 50%;
   background: #ED6C91;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
 }
-div.timeLine ul {
-  position: relative;
-  width: 93%;
-  padding-left: 23%;
-  margin-bottom: 6%;
-
-}
-div.timeLine ul > li {
-  font-family: 'Montserrat', 'Pretendard-Regular', sans-serif;
-  font-weight: 600;
-  font-size: 0.8vw;
-  line-height: 1.3vw;
+section.profile li span {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-div.timeLine ul > li:nth-of-type(2) {
-  margin-left: 3%;
-  font-weight: 400;
-}
 
-div.timeLine ul > li > span {
-  font-size: 0.7vw;
-  font-weight: 400;
-  color: rgba(54, 59, 62, 0.50);
-}
 div.skills {
   width: 20%;
   height: 46%;
@@ -306,35 +298,6 @@ div.emoji {
 }
 
 
-/* designWorks */
-
-section.designWorks > div.lineCloud {
-  top: 15%;
-}
-
-/* section.designWorks > ul > li {
-  position: absolute;
-  bottom: 30%;
-  width: 30vw;
-  z-index: 30;
-}
-
-section.designWorks > ul > li:first-child {
-  left: 8%;
-}
-section.designWorks > ul > li:nth-child(2) {
-  left: 15.5%;
-
-}
-section.designWorks > ul > li:nth-child(3) {
-  left: 24%;
-
-}
-section.designWorks > ul > li:nth-child(4) {
-  left: 32%;
-
-} */
-
 
 /* web projects */
 section.web > ul {
@@ -357,7 +320,7 @@ article h3 {
 }
 
 article > div.cont {
-  position: absolute;
+  position: relative;
   top: 15%;
   left: 32vw;
   display: flex;
@@ -1826,78 +1789,6 @@ div.skills li.jquery img, div.skills li.scss img {width: 80%;}
 div.emoji {
   display: none;
 }
-
-/* designWorks */
-section.designWorks {
-  height: 400vh;
-}
-section.designWorks > ul:first-of-type {
-  display: none;
-}
-
-section.designWorks > h2 {
-  font-family: 'RoxboroughCF-Medium';
-  font-size: 30vw;
-  width: 100%;
-  top: 0;
-  line-height: 1;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(163, 207, 236, 0.90) 36.57%, rgba(220, 163, 178, 0.90) 75.32%, rgba(220, 163, 178, 0.00) 90.66%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: #ffffff20;
-  mix-blend-mode: overlay;
-}
-
-section.designWorks > ul.topright {
-  position: sticky;
-  top: 10%;
-  display: flex;
-  align-items: end;
-  width: 400%;
-  height: 10%;
-  background: url(../images/box.png) repeat-x 0 100%/ contain; 
-  transform: translateX(10%);
-  gap: 2%;
-  
-}
-section.designWorks > ul.bottomleft{
-  position: sticky;
-  /* position: -webkit-sticky; */
-  width: 400%;
-  height: 10%;
-  background: url(../images/box2.png) repeat-x 0 100%/contain;
-  transform: translateX(-82%);
-  display: flex;
-  align-items: end;
-
-}
-
-
-section.designWorks > ul.mobVer > li {
-  position: relative;
-  width: 18%;
-  margin-bottom: 5%
-}
-section.designWorks > ul.topright > li:first-child {
-  margin-left: 8%;
-}
-section.designWorks > ul.bottomleft {
-  justify-content: right;
-}
-section.designWorks > ul.bottomleft li:first-child {
-  width: 21%;
-}
-/* section.designWorks > ul.bottomleft li {
-  width: auto;
-  height: 20vh;
-} */
-section.designWorks > ul.bottomleft > li img:last-child {
-  width: auto;
-  height: 45vh;
-}
-
-
 
 
 
