@@ -380,52 +380,52 @@ window.addEventListener("scroll", ()=> {
 
 
 // ❗❗ 디자인 가로스크롤
-let design = document.querySelector("section.designWorks");
-let designTop = design.getBoundingClientRect().top;
+//let design = document.querySelector("section.designWorks");
+//let designTop = design.getBoundingClientRect().top;
 
 // 모바일 제외
-if(windowW > 480){
-  scrollPC();
-} else {
-  scrollMob();
-}
+//if(windowW > 480){
+//  scrollPC();
+//} else {
+  //scrollMob();
+//}
 
-window.addEventListener("resize", ()=>{
-  if(windowW > 480){
-    window.addEventListener("resize", scrollPC());
-  } else {
-    window.addEventListener("resize", scrollMob());
-  }
-})
+//window.addEventListener("resize", ()=>{
+//  if(windowW > 480){
+    //window.addEventListener("resize", scrollPC());
+//  } else {
+    //window.addEventListener("resize", scrollMob());
+  //}
+//})
 
-function scrollPC(){
-  let designBox = document.querySelector("section.designWorks > ul:first-of-type")
+//function scrollPC(){
+//  let designBox = document.querySelector("section.designWorks > ul:first-of-type")
 
-  const style = window.getComputedStyle(designBox);
-  const matrix = style.transform || style.webkitTransform || style.mozTransform
+  //const style = window.getComputedStyle(designBox);
+  //const matrix = style.transform || style.webkitTransform || style.mozTransform
   // 2d matrix has 6 values || 3d matrix has 16 values
-  const matrixType = matrix.includes('3d') ? '3d' : '2d';
-  const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
-  if (matrixType === '2d'){
+  //const matrixType = matrix.includes('3d') ? '3d' : '2d';
+//  const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+  //if (matrixType === '2d'){
     // 왜 let은 안되지?
-    var x = matrixValues[4];
-  }
+//    var x = matrixValues[4];
+//  }
   
-  window.addEventListener("scroll", e=> {
-    let y = window.scrollY;
+//  window.addEventListener("scroll", e=> {
+  //  let y = window.scrollY;
   
-    window.addEventListener("resize", e => {
-      designTop = design.offsetTop;
-    })
+  //  window.addEventListener("resize", e => {
+    //  designTop = design.offsetTop;
+    //})
   
-    if(y > designTop){
-      design.classList.add("on");
-      designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
-    } else {
-      design.classList.remove("on");
-    }
-  })
-}
+    //if(y > designTop){
+      //design.classList.add("on");
+      //designBox.style.transform = `translateX(${1.95*x - y/2.5}px)`
+    //} else {
+      //design.classList.remove("on");
+    //}
+  //})
+//}
 
 function scrollMob(){
   let mobDesignA = document.querySelector("ul.topright");
